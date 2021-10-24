@@ -59,3 +59,20 @@ def find_credentials(credential):
     """
 
     return Credentials.find_credentials(credential)
+
+
+def check_existing_credentials(platform):
+    """
+    Function that will check for a credential
+    """
+    return Credentials.credential_exists(platform)
+
+@classmethod
+def password_gen(length):
+    """
+    generate random password
+    """
+    letters = string.ascii_lowercase
+    result1 = ''.join((random.sample(letters, length)))  
+    platform_password = result1
+    return platform_password  
