@@ -120,5 +120,22 @@ def main():
                     new_user_password = confirmed_password
                     save_user(create_user(new_user_first_name, new_user_last_name,new_user_password))
 
+                
+                else:
+                    print("\N{ESC}[31mPassword Doesn't match. Try again\u001b[0m")
+                    break
+            elif create_password_option == "b": 
+
+                password_length = int(input("What length would you like your password to be,i.e 5,8..."))
+
+                letters = string.ascii_lowercase
+                auto_gen_password =  ( ''.join(random.choice(letters) for i in range(password_length)))
+
+
+                print("\u001b[35;1mYour generated password is: \u001b[0m", auto_gen_password)
+                new_user_password = auto_gen_password
+
+
+
 if __name__ == "__main__":
     main()
