@@ -31,6 +31,13 @@ class TestUser(unittest.TestCase):
         self.new_credentials.save_credentials()
         self.assertEqual(len(Credentials.credential_requirements), 1)
 
+    def tearDown(self):
+        '''
+        Tear down method that cleans up after each test case has run
+        '''
+
+        Credentials.credential_requirements = []
+
 
 if __name__ == "__main__":
     unittest.main()
