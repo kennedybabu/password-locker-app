@@ -27,3 +27,16 @@ def create_user_credentials(platform_name, platform_username, platform_password)
     """
     new_user_credentials = Credentials(platform_name, platform_username, platform_password)
     return new_user_credentials
+
+def save_user_credentials(credential):
+    """
+    Function to save user credentials
+    """
+    Credentials.save_credentials(credential)
+
+
+def display_credentials():
+    """
+    A function that will return the credential list
+    """
+    return Credentials.display_credentials()
