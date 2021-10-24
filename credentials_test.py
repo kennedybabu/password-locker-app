@@ -23,5 +23,14 @@ class TestUser(unittest.TestCase):
         self.assertEqual(self.new_credentials.platform_user_password, "12345")
 
 
-    if __name__ == "__main__":
-        unittest.main()
+    def test_save_credentials(self):
+        '''
+        Test whether the credential object is saved in the credential list
+        '''
+
+        self.new_credentials.save_credentials()
+        self.assertEqual(len(Credentials.credential_requirements), 1)
+
+
+if __name__ == "__main__":
+    unittest.main()
