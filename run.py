@@ -112,5 +112,13 @@ def main():
             print("Would you like to create your password or generate one, A. Create | B. Generate")
             create_password_option = input().lower()
 
+            if create_password_option == "a":
+                create_password = input("Enter your password: ")
+                confirmed_password = input("\u001b[33mConfirm password: \u001b[0m")
+                if confirmed_password == create_password:
+                    print("\u001b[32mAccount Created Succesfully.\u001b[0m")
+                    new_user_password = confirmed_password
+                    save_user(create_user(new_user_first_name, new_user_last_name,new_user_password))
+
 if __name__ == "__main__":
     main()
