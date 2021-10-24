@@ -76,3 +76,19 @@ def password_gen(length):
     result1 = ''.join((random.sample(letters, length)))  
     platform_password = result1
     return platform_password  
+
+
+def main():
+    print("\n")
+    print("\u001b[35mJambo(Hello, in Swahili)!Welcome to Password-Locker!.\u001b[0m")
+    print("\n")
+
+    user_name = input("\u001b[36mEnter your user name: \u001b[0m")
+
+
+    print(f"What would you like to do? A. Login | B. Create an account")
+
+    short_code = input().lower()
+
+if __name__ == "__main__":
+    main()
