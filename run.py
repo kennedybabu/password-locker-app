@@ -103,5 +103,14 @@ def main():
                 
                 sys.exit()
 
+        elif short_code == "b":
+
+            print("Create an Account")
+
+            new_user_first_name = input("Enter your first name: ")
+            new_user_last_name = input("Enter your last name: ")
+            print("Would you like to create your password or generate one, A. Create | B. Generate")
+            create_password_option = input().lower()
+
 if __name__ == "__main__":
     main()
