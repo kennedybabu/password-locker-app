@@ -135,6 +135,54 @@ def main():
                 print("\u001b[35;1mYour generated password is: \u001b[0m", auto_gen_password)
                 new_user_password = auto_gen_password
 
+                while True:
+
+                    save_user(create_user(new_user_first_name, new_user_last_name, new_user_password))
+                    print("\n")                  
+                    print(f"\u001b[32;1mSuccessfully, created {new_user_first_name} account\u001b[0m")
+                    user_decision = input("\u001b[34mA. To view Your saved Passwords | B. Exit\u001b[0m: ").lower()
+
+                    if user_decision == "a":
+                        if display_credentials():
+                            print("Heres a list of your credentials")
+
+                            for credential in display_credentials():
+                                print(f"Account: {credential.platform_name}")
+
+                        else:
+                            print("\u001b[31mYou don't seem to have any credentials saved\u001b[0m")
+                            print("Exit")
+                            sys.exit()
+
+                    elif user_decision == "b":
+                        print(f"You have logged out {new_user_first_name} .Remember: We remember your passwords so that you dont have to.")
+                        sys.exit()
+
+            
+            while True:
+                print("\n")
+                print("Proceed to login")
+
+
+                login_name = input("Enter your name: ")
+                login_password = input("Enter password: ")
+                new_user_password = input("\u001b[33mConfirm password: \u001b[0m")
+
+
+                if login_name == new_user_first_name and login_password == confirmed_password:
+                    print(f"\u001b[32m{new_user_first_name} Login successful!\u001b[0m")
+                    print("\n")
+
+
+                    print("Create a Password Vault")
+                    platform = input("Enter platform name...")
+                    platform_username  = input("Enter your user name: ")
+                    platform_pswrd = input("Enter password: ")
+
+
+
+                            
+
 
 
 if __name__ == "__main__":
