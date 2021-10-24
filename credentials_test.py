@@ -38,6 +38,23 @@ class TestUser(unittest.TestCase):
 
         Credentials.credential_requirements = []
 
+    def test_Save_multiple_credentials(self):
+        '''
+        Test to check whether we can save multiple credentials to the array
+        '''
+
+        self.new_credentials.save_credentials()
+        test_credential = Credentials("instagram", "Brady", "09876")
+        test_credential.save_credentials()
+        self.assertEqual(len(Credentials.credential_requirements), 2)
+
+    def test_display_all_credentials(self):
+        '''
+        Test whether all credentials are displayed back to the user
+        '''
+
+        self.assertEqual(Credentials.display_credentials(), Credentials.credential_requirements)
+
 
 if __name__ == "__main__":
     unittest.main()
