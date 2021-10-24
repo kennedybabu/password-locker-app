@@ -40,3 +40,9 @@ def display_credentials():
     A function that will return the credential list
     """
     return Credentials.display_credentials()
+
+def find_user(username):
+    """
+    Function that will find a user by their username and return the user
+    """
+    return User.find_by_username(username)
