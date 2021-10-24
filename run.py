@@ -90,5 +90,18 @@ def main():
 
     short_code = input().lower()
 
+    while True:
+        if short_code == "a":
+            print()
+           
+            platform_search = input("Enter the platform you want to search for: ")
+            if check_existing_credentials(platform_search):
+                search_credential = find_credentials(platform_search)
+
+            else:
+                print("\u001b[31;1mThe credential was not found, Try Again\u001b[0m")
+                
+                sys.exit()
+
 if __name__ == "__main__":
     main()
