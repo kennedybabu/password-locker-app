@@ -49,5 +49,21 @@ class Credentials:
             if credential.platform_name == platform:
                 return credential
         
+    @classmethod
+    def credential_exists(cls, platform):
+        '''
+        Function that will check for a credential exists from the credential list
+        Args:
+            platform: name to search if the credential exists
+        Returns:
+            Boolea: True or False
+            
+        '''
+
+        for credential in cls.credential_requirements:
+            if credential.platform_name == platform:
+                return True
+
+        return False
 
     

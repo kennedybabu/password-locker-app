@@ -55,6 +55,17 @@ class TestUser(unittest.TestCase):
 
         self.assertEqual(Credentials.display_credentials(), Credentials.credential_requirements)
 
+    def test_delete_user_credentials(self):
+        '''
+        Test if a credential object is removed from the array
+        '''
+
+        self.new_credentials.save_credentials()
+        test_credential = Credentials("pinterest", "Tom", "123456")
+
+        self.new_credentials.delete_credentials()
+        self.assertEqual(len(Credentials.credential_requirements), 1)
+
 
 if __name__ == "__main__":
     unittest.main()
