@@ -18,3 +18,36 @@ class Credentials:
         '''
 
         Credentials.credential_requirements.append(self)
+
+    def delete_credentials(self):
+        '''
+        Function that will delete a users credential
+        '''
+
+        Credentials.credential_requirements.remove(self)
+
+    @classmethod
+    def display_credentials(cls):
+        '''
+        returns the credential list
+        '''
+
+        return cls.credential_requirements
+
+    @classmethod
+    def find_credentials(cls,platform):
+        '''
+        Function that will take in a platform name and return the credentials that match
+
+        Args:
+            platform_name: name of the credential to search for
+        Return:
+            Credentials that match the platform_name
+        '''
+
+        for credential in cls.credential_requirements:
+            if credential.platform_name == platform:
+                return credential
+        
+
+    
