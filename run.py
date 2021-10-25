@@ -180,9 +180,45 @@ def main():
                     platform_pswrd = input("Enter password: ")
 
 
+                    save_user_credentials(create_user_credentials(platform,platform_username, platform_pswrd))
 
-                            
 
+                    print(f"\u001b[32mPassword Vault for {platform} with the username {platform_username} created successfully\u001b[0m")
+
+                    print("\u001b[34mA. To view Your saved Passwords | B. Exit| C. Delete Credential\u001b[0m")
+                    choice = input().lower()
+
+                    if choice == "a":
+                        if display_credentials():
+                            print("\n")
+                            print("Here is a list of all your credentials")
+                            print("\n")
+
+                            for credential in display_credentials():
+                                # print("We should be getting something")
+                                print(f"Account: {credential.platform_name}")
+
+                        else:
+                            print("\u001b[31mYou don't seem to have any credentials saved\u001b[0m")
+
+                    elif choice == "b":
+
+                        print(f"You have logged out {login_name} .Remember: We remember your passwords so that you dont have to.")
+                        break
+
+
+                    elif choice == "c":
+                        print("Which account would you like to delete? ")
+                        delete_acc = input("Enter account name, i.e insatgram: ")
+                        delete_credentials(find_credentials(delete_acc))
+                        print(f"{delete_acc} has been deleted succesfully!")
+
+                else:
+                    print("\N{ESC}[31mLogin Failed. Enter valid credentials\u001b[0m")
+                    break  
+
+            print("Bye")
+            break                            
 
 
 if __name__ == "__main__":
